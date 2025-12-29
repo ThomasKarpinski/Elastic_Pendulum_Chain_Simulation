@@ -121,10 +121,16 @@ class Animation2D:
             self.spring_line.set_xdata([self.anchor_point[0], self.data[0, 0]])
             self.spring_line.set_ydata([self.anchor_point[1], self.data[0, 1]])
 
-    def run_animation(self,frames=60,interval=30):
+    def run_animation(self, frames=60, interval=30, save_filename=None):
         self.ani = animation.FuncAnimation(fig=self.fig, func=self.update_frame,
-                                           frames=frames , interval=interval)
-        plt.show()
+                                           frames=frames, interval=interval)
+        if save_filename:
+            print(f"Saving animation to {save_filename}...")
+            fps = 1000 / interval
+            self.ani.save(save_filename, writer='pillow', fps=fps)
+            print(f"Animation saved to {save_filename}")
+        else:
+            plt.show()
 
 class Animation3D(Animation2D):
     def create_canvas(self, **kwargs):

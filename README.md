@@ -1,5 +1,7 @@
 # Elastic Pendulum Chain Simulation
 
+![3D Simulation Demo](simulation_3d.gif)
+
 This project simulates a chain of **N** elastic particles (spring-mass system) swinging under gravity. It uses symbolic mathematics to derive the exact equations of motion (Lagrangian formalism), generates optimized C code for numerical solving, and visualizes the system in real-time.
 
 ## Features

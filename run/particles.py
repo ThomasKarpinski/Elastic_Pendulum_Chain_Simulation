@@ -195,4 +195,9 @@ else:
     lim = NUMBER_OF_PARTICLES * 1.5
     ani.create_canvas(xlabel='x', ylabel='y', zlabel='z', xlim=[-lim, lim], ylim=[-lim, lim], zlim=[-lim, 1])
 
-ani.run_animation()
+if "save" in argv:
+    gif_name = f"simulation_{MODE.lower()}.gif"
+    # Use more frames for the GIF to show a good loop
+    ani.run_animation(frames=120, save_filename=gif_name)
+else:
+    ani.run_animation()
